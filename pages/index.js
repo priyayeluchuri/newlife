@@ -62,7 +62,7 @@ export default function Home() {
           Give to Our Mission
         </h2>
         <p className="text-base sm:text-lg text-center mb-6 text-text-primary max-w-2xl mx-auto">
-          Your generosity helps us spread kindness and love in our community.
+          Your generosity empowers us to share kindness, strengthen faith, and uplift our community.
         </p>
         <div className="text-center">
           <a
