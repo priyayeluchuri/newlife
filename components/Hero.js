@@ -27,12 +27,6 @@ export default function Hero() {
             >
               Watch Live
             </Link>
-            <Link
-              href="/connect"
-              className="bg-peaceful-blue text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#3A80D2] text-base sm:text-lg transition"
-            >
-              Join Us
-            </Link>
           </div>
         </div>
       </div>

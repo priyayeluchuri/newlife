@@ -30,28 +30,33 @@ export default function Home() {
         </div>
       </section>
       <section className="container mx-auto py-12 sm:py-16 px-4 sm:px-6 bg-light-gray-green">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-text-primary">
-          Join Us
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <EventCard
-            title="Friday Night Service"
-            time="7:00 PM"
-            location="New Life Church"
-          />
-          <EventCard
-            title="Sunday Morning Service"
-            time="10:00 AM"
-            location="New Life Church"
-          />
-          <EventCard
-            title="Sunday Free Lunch"
-            time="12:00 PM"
-            location="Church Hall"
-          />
-        </div>
-      </section>
-      <PrayerForm />
+  <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 text-text-primary">
+    Join Us
+  </h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <EventCard
+      title="Friday Night Service"
+      time="8:00 PM"
+      location="New Life Church"
+    />
+    <EventCard
+      title="Sunday Morning Service"
+      time="9:00 AM"
+      location="New Life Church"
+    />
+    <EventCard
+      title="Sunday School"
+      time="10:00 AM"
+      location="Church Hall"
+    />
+    <EventCard
+      title="Sunday Free Lunch"
+      time="12:00 PM"
+      location="Church Premises"
+    />
+  </div>
+</section> 
+     <PrayerForm />
       <section className="container mx-auto py-12 sm:py-16 px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 text-text-primary">
           Give to Our Mission
