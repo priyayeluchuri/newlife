@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  directory = "netlify/functions"
+
+[[forms]]
+  name = "prayer-request"
+  action = "/.netlify/functions/send-prayer-email"
