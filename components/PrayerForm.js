@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 export default function PrayerForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -7,13 +6,34 @@ export default function PrayerForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset error state
-    const formData = new FormData(e.target);
+    setError(null);
+    const form = e.target;
+
+    const data = {
+      name: form.name.value,
+      reason: form.reason.value,
+      contact: form.contact.value,
+    };
+
     try {
-      await axios.post('/', formData);
-      setSubmitted(true);
+      const response = await fetch('/.netlify/functions/send-prayer-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ data }),
+      });
+
+      const result = await response.json();
+      console.log('Server response:', result);
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error(result?.error || 'Failed to send prayer request');
+      }
     } catch (err) {
-      console.error('Form submission failed:', err);
+      console.error('Form submission error:', err);
       setError('Failed to submit prayer request. Please try again.');
     }
   };
@@ -48,15 +68,9 @@ export default function PrayerForm() {
         </p>
       )}
       <form
-        name="prayer-request"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="max-w-md mx-auto space-y-4"
       >
-        <input type="hidden" name="form-name" value="prayer-request" />
-        <input type="text" name="bot-field" className="hidden" />
         <div>
           <label htmlFor="name" className="block text-sm sm:text-base text-text-primary mb-1">
             Name
@@ -88,7 +102,7 @@ export default function PrayerForm() {
             Contact (Optional)
           </label>
           <input
-            type="email"
+            type="text"
             name="contact"
             id="contact"
             placeholder="Email or Phone"
@@ -105,3 +119,4 @@ export default function PrayerForm() {
     </section>
   );
 }
+

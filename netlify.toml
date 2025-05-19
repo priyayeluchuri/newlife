@@ -11,3 +11,4 @@
 [[forms]]
   name = "prayer-request"
   action = "/.netlify/functions/send-prayer-email"
+  notification_hooks = ["/.netlify/functions/send-prayer-email"]
